@@ -10,6 +10,12 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    protected $table      = 'users';
+    protected $guarded    = ['userId'];
+    protected $primaryKey = 'userId';
+    public $timestamps = false;
+    const CREATED_AT = 'captured';
+    const UPDATED_AT = 'lastIn';
 
     /**
      * The attributes that are mass assignable.
